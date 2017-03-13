@@ -23,6 +23,7 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
 pod 'CHIPageControl', '~> 0.1'
 ```
+
 ## Usage
 ### 🎨 Storyboards
 Just drop UIView and set its class to be one of CHIPageControls.
@@ -43,6 +44,15 @@ pageControl.progress = 0.5
 //set progress with animation
 pageControl.set(progress: 2, animated: true)
 ```
+### Page Controls
+- CHIPageControlAji
+- CHIPageControlAleppo
+- CHIPageControlChimayo
+- CHIPageControlFresno
+- CHIPageControlJalapeno
+- CHIPageControlJaloro
+- CHIPageControlPaprika
+- CHIPageControlPuya
 
 ## License
 Airstream is released under the MIT license. See [LICENSE](./LICENSE) for details.
