@@ -21,7 +21,7 @@ Just add the `CHIPageControl` folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'CHIPageControl', '~> 0.1'
+pod 'CHIPageControl', '~> 0.0.1'
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ pageControl.progress = 0.5
 //set progress with animation
 pageControl.set(progress: 2, animated: true)
 ```
-### Page Controls
+### Page Controls 🌶️🌶️🌶️
 - CHIPageControlAji
 - CHIPageControlAleppo
 - CHIPageControlChimayo
