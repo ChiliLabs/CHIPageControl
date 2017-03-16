@@ -38,7 +38,7 @@ pageControl.padding = 6
 ```
 ### Updating progress
 ``` swift
-//update dinamically
+//update dynamically
 pageControl.progress = 0.5
 
 //set progress with animation
@@ -55,4 +55,4 @@ pageControl.set(progress: 2, animated: true)
 - CHIPageControlPuya
 
 ## License
-Airstream is released under the MIT license. See [LICENSE](./LICENSE) for details.
+CHIPageControl is released under the MIT license. See [LICENSE](./LICENSE) for details.
