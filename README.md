@@ -7,7 +7,7 @@ Made with ❤️ by [Chili](http://chi.lv).
 
 ## Overview
 
-<img src="Demo/demo.gif" width="600" height="450">
+<img src="Images/demo.gif" width="600" height="450">
 
 ## Requirements
 
@@ -17,17 +17,28 @@ Made with ❤️ by [Chili](http://chi.lv).
 
 ## Installation
 
+### Manually
+
 Just add the `CHIPageControl` folder to your project.
 
-or use [CocoaPods](https://cocoapods.org) with Podfile:
+### CocoaPods
+
+use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
 pod 'CHIPageControl', '~> 0.0.1'
 ```
+### Carthage
+
+use [Carthage](https://github.com/Carthage/Carthage) with Cartfile
+```ogdl
+github "ChiliLabs/CHIPageControl" ~> 0.0.1
+```
+
 
 ## Usage
 ### 🎨 Storyboards
 Just drop UIView and set its class to be one of CHIPageControls.
-<img src="Demo/ibdesignable.gif" width="800" height="564">
+<img src="Images/ibdesignable.gif" width="800" height="564">
 ### 💻 Code
 ``` swift
 let pageControl = CHIPageControlAji(frame: CGRect(x: 0, y:0, with: 100, height: 20))
