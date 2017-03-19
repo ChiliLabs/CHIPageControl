@@ -38,13 +38,13 @@ open class CHIPageControlJaloro: CHIBasePageControl {
 
     @IBInspectable open var elementWidth: CGFloat = 20 {
         didSet {
-            layout()
+            setNeedsLayout()
         }
     }
 
     @IBInspectable open var elementHeight: CGFloat = 6 {
         didSet {
-            layout()
+            setNeedsLayout()
         }
     }
 
@@ -70,15 +70,16 @@ open class CHIPageControlJaloro: CHIBasePageControl {
 
         self.layer.addSublayer(active)
 
-        layout()
-        update(for: progress)
+        setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
 
-    override func layout() {
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
         let floatCount = CGFloat(inactive.count)
-        let x = (self.frame.size.width - self.elementWidth*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.frame.size.height - self.elementHeight)*0.5
+        let x = (self.bounds.size.width - self.elementWidth*floatCount - self.padding*(floatCount-1))*0.5
+        let y = (self.bounds.size.height - self.elementHeight)*0.5
         var frame = CGRect(x: x, y: y, width: self.elementWidth, height: self.elementHeight)
 
         active.cornerRadius = self.radius
@@ -95,6 +96,7 @@ open class CHIPageControlJaloro: CHIBasePageControl {
             layer.frame = frame
             frame.origin.x += self.elementWidth + self.padding
         }
+        update(for: progress)
     }
 
     override func update(for progress: Double) {

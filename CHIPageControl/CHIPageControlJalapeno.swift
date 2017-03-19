@@ -60,8 +60,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
 
         self.layer.addSublayer(active)
         
-        layout()
-        update(for: progress)
+        setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
     
@@ -126,10 +125,12 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         }
     }
     
-    override func layout() {
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
         let floatCount = CGFloat(inactive.count)
-        let x = (self.frame.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.frame.size.height - self.diameter)*0.5
+        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
+        let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
         
         inactive.forEach() { layer in
@@ -143,6 +144,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
             frame.origin.x += self.diameter + self.padding
         }
         self.active.fillColor = self.tintColor.cgColor
+        update(for: progress)
     }
     
     override open var intrinsicContentSize: CGSize {
