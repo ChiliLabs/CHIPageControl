@@ -47,40 +47,40 @@ import UIKit
     
     @IBInspectable open var padding: CGFloat = 5 {
         didSet {
-            layout()
+            setNeedsLayout()
             update(for: progress)
         }
     }
     
     @IBInspectable open var radius: CGFloat = 10 {
         didSet {
-            layout()
+            setNeedsLayout()
             update(for: progress)
         }
     }
     
     @IBInspectable open var inactiveTransparency: CGFloat = 0.4 {
         didSet {
-            layout()
+            setNeedsLayout()
             update(for: progress)
         }
     }
     
     @IBInspectable open var hidesForSinglePage: Bool = true {
         didSet {
-            layout()
+            setNeedsLayout()
         }
     }
     
     @IBInspectable open var borderWidth: CGFloat = 0 {
         didSet {
-            layout()
+            setNeedsLayout()
         }
     }
     
     override open var tintColor: UIColor! {
         didSet {
-            layout()
+            setNeedsLayout()
         }
     }
     
@@ -142,10 +142,6 @@ import UIKit
     }
     
     func updateNumberOfPages(_ count: Int) {
-        fatalError("Should be implemented in child class")
-    }
-    
-    func layout() {
         fatalError("Should be implemented in child class")
     }
     

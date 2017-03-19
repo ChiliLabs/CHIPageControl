@@ -54,15 +54,16 @@ open class CHIPageControlPuya: CHIBasePageControl {
             return layer
         }
 
-        layout()
-        update(for: progress)
+        setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
 
-    override func layout() {
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
         let floatCount = CGFloat(elements.count)
-        let x = (self.frame.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.frame.size.height - self.diameter)*0.5
+        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
+        let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         elements.forEach() { layer in
@@ -85,6 +86,7 @@ open class CHIPageControlPuya: CHIBasePageControl {
         max = elements.last?.frame
 
         self.frames = elements.map { $0.frame }
+        update(for: progress)
     }
 
     override func update(for progress: Double) {
@@ -98,6 +100,14 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let dist = max.origin.x - min.origin.x
         let percent = CGFloat(progress / total)
         let page = Int(progress)
+        
+        for (index, _) in self.frames.enumerated() {
+            if page > index {
+                self.elements[index+1].frame = self.frames[index]
+            } else if page < index {
+                self.elements[index].frame = self.frames[index]
+            }
+        }
 
         let offset = dist * percent
         guard let active = elements.first else { return }

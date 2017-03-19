@@ -25,13 +25,13 @@ Just add the `CHIPageControl` folder to your project.
 
 use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'CHIPageControl', '~> 0.0.1'
+pod 'CHIPageControl', '~> 0.0.2'
 ```
 ### Carthage
 
 use [Carthage](https://github.com/Carthage/Carthage) with Cartfile
 ```ogdl
-github "ChiliLabs/CHIPageControl" ~> 0.0.1
+github "ChiliLabs/CHIPageControl" ~> 0.0.2
 ```
 
 
@@ -56,14 +56,22 @@ pageControl.progress = 0.5
 pageControl.set(progress: 2, animated: true)
 ```
 ### Page Controls 🌶️🌶️🌶️
-- CHIPageControlAji
-- CHIPageControlAleppo
-- CHIPageControlChimayo
-- CHIPageControlFresno
-- CHIPageControlJalapeno
-- CHIPageControlJaloro
-- CHIPageControlPaprika
-- CHIPageControlPuya
+
+<img src="Images/Aji.gif" width="100" height="50"> CHIPageControlAji
+
+<img src="Images/Aleppo.gif" width="100" height="50"> CHIPageControlAleppo
+
+<img src="Images/Chimayo.gif" width="100" height="50"> CHIPageControlChimayo
+
+<img src="Images/Fresno.gif" width="100" height="50"> CHIPageControlFresno
+
+<img src="Images/Jalapeno.gif" width="100" height="50"> CHIPageControlJalapeno
+
+<img src="Images/Jaloro.gif" width="100" height="50"> CHIPageControlJaloro
+
+<img src="Images/Paprika.gif" width="100" height="50"> CHIPageControlPaprika
+
+<img src="Images/Puya.gif" width="100" height="50"> CHIPageControlPuya
 
 ## License
 CHIPageControl is released under the MIT license. See [LICENSE](./LICENSE) for details.

@@ -35,9 +35,9 @@ open class CHIPageControlAleppo: CHIBasePageControl {
 
     fileprivate lazy var active: CHILayer = { [unowned self] in
         let layer = CHILayer()
-        layer.frame = CGRect(origin: .zero, size: CGSize(width: self.diameter, height: self.diameter))
         layer.backgroundColor = self.tintColor.cgColor
         layer.cornerRadius = self.radius
+        self.layer.addSublayer(layer)
         return layer
     }()
 
@@ -57,10 +57,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
             self.layer.addSublayer(layer)
             return layer
         }
-
-        self.layer.addSublayer(active)
-        layout()
-        update(for: progress)
+        setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
 
@@ -80,10 +77,12 @@ open class CHIPageControlAleppo: CHIBasePageControl {
         active.frame = frame
     }
 
-    override func layout() {
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
         let floatCount = CGFloat(inactive.count)
-        let x = (self.frame.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.frame.size.height - self.diameter)*0.5
+        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
+        let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         active.cornerRadius = self.radius
@@ -100,6 +99,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
         }
+        update(for: progress)
     }
 
     override open var intrinsicContentSize: CGSize {
