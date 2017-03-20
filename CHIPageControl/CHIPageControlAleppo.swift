@@ -33,13 +33,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
 
     fileprivate var inactive = [CHILayer]()
 
-    fileprivate lazy var active: CHILayer = { [unowned self] in
-        let layer = CHILayer()
-        layer.backgroundColor = self.tintColor.cgColor
-        layer.cornerRadius = self.radius
-        self.layer.addSublayer(layer)
-        return layer
-    }()
+    fileprivate var active: CHILayer = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,13 +44,14 @@ open class CHIPageControlAleppo: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach() { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
             self.layer.addSublayer(layer)
             return layer
         }
+        self.layer.addSublayer(active)
+
         setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
@@ -86,7 +81,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         active.cornerRadius = self.radius
-        active.backgroundColor = self.tintColor.cgColor
+        active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
 
         inactive.forEach() { layer in

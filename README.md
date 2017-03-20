@@ -25,13 +25,13 @@ Just add the `CHIPageControl` folder to your project.
 
 use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'CHIPageControl', '~> 0.0.2'
+pod 'CHIPageControl', '~> 0.0.3'
 ```
 ### Carthage
 
 use [Carthage](https://github.com/Carthage/Carthage) with Cartfile
 ```ogdl
-github "ChiliLabs/CHIPageControl" ~> 0.0.2
+github "ChiliLabs/CHIPageControl" ~> 0.0.3
 ```
 
 
@@ -45,6 +45,7 @@ let pageControl = CHIPageControlAji(frame: CGRect(x: 0, y:0, with: 100, height: 
 pageControl.numberOfPages = 4
 pageControl.radius = 4
 pageControl.tintColor = .red
+pageControl.currentPageTintColor = .green
 pageControl.padding = 6
 ```
 ### Updating progress

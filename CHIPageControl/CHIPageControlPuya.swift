@@ -46,7 +46,6 @@ open class CHIPageControlPuya: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        elements.forEach() { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
         elements = (0..<count).map {_ in
             let layer = CHILayer()
@@ -78,7 +77,7 @@ open class CHIPageControlPuya: CHIBasePageControl {
         }
 
         if let active = elements.first {
-            active.backgroundColor = self.tintColor.cgColor
+            active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
             active.borderWidth = 0
         }
 
@@ -112,6 +111,7 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let offset = dist * percent
         guard let active = elements.first else { return }
         active.frame.origin.x = min.origin.x + offset
+        active.borderWidth = 0
 
         let index = page + 1
         guard elements.indices.contains(index) else { return }

@@ -46,7 +46,6 @@ open class CHIPageControlFresno: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        elements.forEach() { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
         elements = (0..<count).map {_ in
             let layer = CHILayer()
@@ -78,7 +77,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
         }
         
         if let active = elements.first {
-            active.backgroundColor = self.tintColor.cgColor
+            active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
             active.borderWidth = 0
         }
 

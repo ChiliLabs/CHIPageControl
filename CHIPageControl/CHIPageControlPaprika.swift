@@ -79,7 +79,8 @@ open class CHIPageControlPaprika: CHIBasePageControl {
         }
 
         if let active = elements.first {
-            active.backgroundColor = self.tintColor.cgColor
+            active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
+            active.borderWidth = 0
         }
         
         min = elements.first?.frame

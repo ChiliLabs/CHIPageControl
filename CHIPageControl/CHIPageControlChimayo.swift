@@ -32,7 +32,6 @@ open class CHIPageControlChimayo: CHIBasePageControl {
         return radius * 2
     }
 
-    fileprivate var active = CHILayer()
     fileprivate var inactive = [CHILayer]()
 
     required public init?(coder aDecoder: NSCoder) {
@@ -49,7 +48,6 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach() { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
