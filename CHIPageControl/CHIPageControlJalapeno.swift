@@ -35,11 +35,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     
     fileprivate var inactive = [CHILayer]()
     
-    fileprivate lazy var active: CHILayer = { [unowned self] in
-        let layer = CHILayer()
-        layer.fillColor = self.tintColor.cgColor
-        return layer
-    }()
+    fileprivate var active: CHILayer = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,7 +46,6 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach() { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
@@ -59,7 +54,6 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         }
 
         self.layer.addSublayer(active)
-        
         setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
@@ -143,7 +137,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
         }
-        self.active.fillColor = self.tintColor.cgColor
+        self.active.fillColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         update(for: progress)
     }
     

@@ -83,7 +83,13 @@ import UIKit
             setNeedsLayout()
         }
     }
-    
+
+    @IBInspectable open var currentPageTintColor: UIColor? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+
     internal var moveToProgress: Double?
     
     private var displayLink: CADisplayLink?

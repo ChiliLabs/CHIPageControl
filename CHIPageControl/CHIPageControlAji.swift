@@ -43,7 +43,6 @@ open class CHIPageControlAji: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach() { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
@@ -65,7 +64,7 @@ open class CHIPageControlAji: CHIBasePageControl {
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         active.cornerRadius = self.radius
-        active.backgroundColor = self.tintColor.cgColor
+        active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
 
         inactive.forEach() { layer in

@@ -27,15 +27,6 @@ import UIKit
 
 open class CHIPageControlJaloro: CHIBasePageControl {
 
-    override open var tintColor: UIColor! {
-        didSet{
-            active.backgroundColor = tintColor.cgColor
-            inactive.forEach() {
-                $0.backgroundColor = tintColor.withAlphaComponent(0.5).cgColor
-            }
-        }
-    }
-
     @IBInspectable open var elementWidth: CGFloat = 20 {
         didSet {
             setNeedsLayout()
@@ -60,7 +51,6 @@ open class CHIPageControlJaloro: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach() { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
@@ -83,7 +73,7 @@ open class CHIPageControlJaloro: CHIBasePageControl {
         var frame = CGRect(x: x, y: y, width: self.elementWidth, height: self.elementHeight)
 
         active.cornerRadius = self.radius
-        active.backgroundColor = self.tintColor?.cgColor
+        active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
 
         inactive.forEach() { layer in
