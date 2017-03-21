@@ -26,6 +26,16 @@ Just add the `CHIPageControl` folder to your project.
 use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
 pod 'CHIPageControl', '~> 0.0.3'
+
+# individual page control
+pod 'CHIPageControl/Aji'
+pod 'CHIPageControl/Aleppo'
+pod 'CHIPageControl/Chimayo'
+pod 'CHIPageControl/Fresno'
+pod 'CHIPageControl/Jalapeno'
+pod 'CHIPageControl/Jaloro'
+pod 'CHIPageControl/Paprika'
+pod 'CHIPageControl/Puya'
 ```
 ### Carthage
 

@@ -7,4 +7,6 @@ target 'Example' do
 
   pod 'CHIPageControl', :path => '../'
 
+  #pod 'CHIPageControl/Puya', :path => '../'
+
 end
