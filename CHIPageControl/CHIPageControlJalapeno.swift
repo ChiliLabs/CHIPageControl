@@ -73,7 +73,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         let stepProgress = progress - Double(currentPage)
         
         if abs(self.lastPage - currentPage) > 1 {
-            self.lastPage = self.lastPage + (self.lastPage < currentPage ? 1 : -1)
+            self.lastPage = currentPage + (self.lastPage > currentPage ? 1 : -1)
         }
         
         var middleX = CGFloat(normalized)
