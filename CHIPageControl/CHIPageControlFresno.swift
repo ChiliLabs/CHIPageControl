@@ -113,7 +113,14 @@ open class CHIPageControlFresno: CHIBasePageControl {
         active.frame.origin.x = min.origin.x + offset
 
         let index = page + 1
-        guard elements.indices.contains(index) else { return }
+
+        guard elements.indices.contains(index) else {
+            if frames.indices.contains(page) {
+                active.frame = frames[page]
+            }
+            return
+        }
+
         let element = elements[index]
         guard frames.indices.contains(index - 1), frames.indices.contains(index) else { return }
 
