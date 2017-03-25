@@ -30,7 +30,7 @@ import UIKit
     @IBInspectable open var numberOfPages: Int = 0 {
         didSet {
             updateNumberOfPages(numberOfPages)
-            self.isHidden = hidesForSinglePage && numberOfPages == 0
+            self.isHidden = hidesForSinglePage && numberOfPages <= 1
         }
     }
     
