@@ -96,13 +96,17 @@ import UIKit
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        self.displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
-        self.displayLink?.add(to: .current, forMode: .defaultRunLoopMode)
+        setupDisplayLink()
     }
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        setupDisplayLink()
+    }
+    
+    internal func setupDisplayLink() {
+        self.displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
+        self.displayLink?.add(to: .current, forMode: .defaultRunLoopMode)
     }
 
     internal func updateFrame() {

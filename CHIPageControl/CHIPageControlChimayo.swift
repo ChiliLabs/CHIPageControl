@@ -48,6 +48,7 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
+        inactive.forEach { $0.removeFromSuperlayer() }
         inactive = [CHILayer]()
         inactive = (0..<count).map {_ in
             let layer = CHILayer()
