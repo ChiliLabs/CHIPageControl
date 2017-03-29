@@ -51,7 +51,7 @@ Just drop UIView and set its class to be one of CHIPageControls.
 <img src="Images/ibdesignable.gif" width="800" height="564">
 ### 💻 Code
 ``` swift
-let pageControl = CHIPageControlAji(frame: CGRect(x: 0, y:0, with: 100, height: 20))
+let pageControl = CHIPageControlAji(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
 pageControl.numberOfPages = 4
 pageControl.radius = 4
 pageControl.tintColor = .red
