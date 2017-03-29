@@ -46,6 +46,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
+        elements.forEach { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
         elements = (0..<count).map {_ in
             let layer = CHILayer()

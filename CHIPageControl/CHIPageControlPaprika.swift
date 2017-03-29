@@ -47,6 +47,7 @@ open class CHIPageControlPaprika: CHIBasePageControl {
     }
 
     override func updateNumberOfPages(_ count: Int) {
+        elements.forEach { $0.removeFromSuperlayer() }
         elements.forEach() { $0.removeFromSuperlayer() }
         elements = [CHILayer]()
         elements = (0..<count).map {_ in
