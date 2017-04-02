@@ -31,9 +31,7 @@ open class CHIPageControlPaprika: CHIBasePageControl {
     fileprivate var diameter: CGFloat {
         return radius * 2
     }
-    
-    fileprivate var elements = [CHILayer]()
-    
+	
     fileprivate var frames = [CGRect]()
     fileprivate var min: CGRect?
     fileprivate var max: CGRect?
@@ -45,21 +43,7 @@ open class CHIPageControlPaprika: CHIBasePageControl {
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
-    override func updateNumberOfPages(_ count: Int) {
-        elements.forEach { $0.removeFromSuperlayer() }
-        elements.forEach() { $0.removeFromSuperlayer() }
-        elements = [CHILayer]()
-        elements = (0..<count).map {_ in
-            let layer = CHILayer()
-            self.layer.addSublayer(layer)
-            return layer
-        }
-        
-        setNeedsLayout()
-        self.invalidateIntrinsicContentSize()
-    }
-    
+	
     override open func layoutSubviews() {
         super.layoutSubviews()
         
@@ -69,11 +53,6 @@ open class CHIPageControlPaprika: CHIBasePageControl {
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
         
         elements.forEach() { layer in
-            layer.backgroundColor = self.tintColor.withAlphaComponent(self.inactiveTransparency).cgColor
-            if self.borderWidth > 0 {
-                layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor.cgColor
-            }
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding

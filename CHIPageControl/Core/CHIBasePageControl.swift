@@ -26,7 +26,9 @@
 import UIKit
 
 @IBDesignable open class CHIBasePageControl: UIControl, CHIPageControllable {
-
+	var elements = [CHILayer]()
+	var active: CHILayer = CHILayer()
+	
     @IBInspectable open var numberOfPages: Int = 0 {
         didSet {
             updateNumberOfPages(numberOfPages)
@@ -80,7 +82,7 @@ import UIKit
     
     override open var tintColor: UIColor! {
         didSet {
-            setNeedsLayout()
+			setNeedsLayout()
         }
     }
 
@@ -89,6 +91,15 @@ import UIKit
             setNeedsLayout()
         }
     }
+	
+	internal func setupLayer(layer: CHILayer)
+	{
+		layer.backgroundColor = self.tintColor.withAlphaComponent(self.inactiveTransparency).cgColor
+		if self.borderWidth > 0 {
+			layer.borderWidth = self.borderWidth
+			layer.borderColor = self.tintColor.cgColor
+		}
+	}
 
     internal var moveToProgress: Double?
     
@@ -152,9 +163,21 @@ import UIKit
     }
     
     func updateNumberOfPages(_ count: Int) {
-        fatalError("Should be implemented in child class")
+		elements.forEach { $0.removeFromSuperlayer() }
+		elements = [CHILayer]()
+		elements = (0..<count).map {_ in
+			let layer = CHILayer()
+			self.layer.addSublayer(layer)
+			
+			setupLayer(layer: layer)
+			
+			return layer
+		}
+		
+		setNeedsLayout()
+		self.invalidateIntrinsicContentSize()
     }
-    
+	
     func update(for progress: Double) {
         fatalError("Should be implemented in child class")
     }

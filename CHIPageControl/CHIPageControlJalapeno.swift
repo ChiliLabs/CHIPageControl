@@ -32,10 +32,6 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     fileprivate var diameter: CGFloat {
         return radius * 2
     }
-    
-    fileprivate var inactive = [CHILayer]()
-    
-    fileprivate var active: CHILayer = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -45,23 +41,15 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         super.init(frame: frame)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach { $0.removeFromSuperlayer() }
-        inactive = [CHILayer]()
-        inactive = (0..<count).map {_ in
-            let layer = CHILayer()
-            self.layer.addSublayer(layer)
-            return layer
-        }
-
-        self.layer.addSublayer(active)
-        setNeedsLayout()
-        self.invalidateIntrinsicContentSize()
-    }
-    
+	override func updateNumberOfPages(_ count: Int) {
+		super.updateNumberOfPages(count)
+		
+		self.layer.addSublayer(active)
+	}
+	
     override func update(for progress: Double) {
         guard progress >= 0 && progress <= Double(numberOfPages - 1),
-            let firstFrame = self.inactive.first?.frame else {
+            let firstFrame = self.elements.first?.frame else {
                 return
         }
         let left = firstFrame.origin.x
@@ -123,17 +111,12 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     override open func layoutSubviews() {
         super.layoutSubviews()
         
-        let floatCount = CGFloat(inactive.count)
+        let floatCount = CGFloat(elements.count)
         let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
         
-        inactive.forEach() { layer in
-            layer.backgroundColor = self.tintColor.withAlphaComponent(self.inactiveTransparency).cgColor
-            if self.borderWidth > 0 {
-                layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor.cgColor
-            }
+        elements.forEach() { layer in
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
@@ -147,7 +130,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     }
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: CGFloat(inactive.count) * self.diameter + CGFloat(inactive.count - 1) * self.padding,
+        return CGSize(width: CGFloat(elements.count) * self.diameter + CGFloat(elements.count - 1) * self.padding,
                       height: self.diameter)
     }
 }
