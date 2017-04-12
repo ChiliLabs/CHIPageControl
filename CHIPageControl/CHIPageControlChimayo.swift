@@ -32,8 +32,6 @@ open class CHIPageControlChimayo: CHIBasePageControl {
         return radius * 2
     }
 
-    fileprivate var inactive = [CHILayer]()
-
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -47,27 +45,14 @@ open class CHIPageControlChimayo: CHIBasePageControl {
         self.update(for: self.progress)
     }
 
-    override func updateNumberOfPages(_ count: Int) {
-        inactive.forEach { $0.removeFromSuperlayer() }
-        inactive = [CHILayer]()
-        inactive = (0..<count).map {_ in
-            let layer = CHILayer()
-            self.layer.addSublayer(layer)
-            return layer
-        }
-
-        setNeedsLayout()
-        self.invalidateIntrinsicContentSize()
-    }
-
     override open func layoutSubviews() {
         super.layoutSubviews()
-        let floatCount = CGFloat(inactive.count)
+        let floatCount = CGFloat(elements.count)
         let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
-        inactive.forEach() { layer in
+        elements.forEach() { layer in
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
@@ -107,7 +92,7 @@ open class CHIPageControlChimayo: CHIBasePageControl {
             layer.mask = mask
         }
 
-        for (index, layer) in inactive.enumerated() {
+        for (index, layer) in elements.enumerated() {
             mask(index, layer)
         }
     }
@@ -117,7 +102,7 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     }
         
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: CGFloat(inactive.count) * self.diameter + CGFloat(inactive.count - 1) * self.padding,
+        return CGSize(width: CGFloat(elements.count) * self.diameter + CGFloat(elements.count - 1) * self.padding,
                       height: self.diameter)
     }
 }

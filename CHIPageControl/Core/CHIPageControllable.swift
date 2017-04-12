@@ -28,6 +28,7 @@ import CoreGraphics
 import UIKit
 
 protocol CHIPageControllable: class {
+	var elements: [CHILayer] { get set }
     var numberOfPages: Int { get set }
     var currentPage: Int { get }
     var progress: Double { get set }
