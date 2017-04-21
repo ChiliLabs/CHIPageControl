@@ -59,7 +59,9 @@ open class CHIPageControlAleppo: CHIBasePageControl {
 
     override func update(for progress: Double) {
         guard progress >= 0 && progress <= Double(numberOfPages - 1),
-        let firstFrame = self.inactive.first?.frame else { return }
+            let firstFrame = self.inactive.first?.frame,
+            numberOfPages > 1 else { return }
+
         let normalized = progress * Double(diameter + padding)
         let distance = abs(round(progress) - progress)
         let mult = 1 + distance * 2

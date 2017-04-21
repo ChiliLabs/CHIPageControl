@@ -93,7 +93,8 @@ open class CHIPageControlJaloro: CHIBasePageControl {
     override func update(for progress: Double) {
         guard let min = inactive.first?.frame,
               let max = inactive.last?.frame,
-              progress >= 0 && progress <= Double(numberOfPages - 1) else {
+              progress >= 0 && progress <= Double(numberOfPages - 1),
+              numberOfPages > 1 else {
                 return
         }
 
