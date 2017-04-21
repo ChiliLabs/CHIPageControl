@@ -92,7 +92,8 @@ open class CHIPageControlPuya: CHIBasePageControl {
     override func update(for progress: Double) {
         guard let min = self.min,
               let max = self.max,
-              progress >= 0 && progress <= Double(numberOfPages - 1) else {
+              progress >= 0 && progress <= Double(numberOfPages - 1),
+              numberOfPages > 1 else {
                 return
         }
 

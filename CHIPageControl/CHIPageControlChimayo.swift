@@ -77,7 +77,8 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     }
 
     override func update(for progress: Double) {
-        guard progress >= 0 && progress <= Double(numberOfPages - 1) else { return }
+        guard progress >= 0 && progress <= Double(numberOfPages - 1),
+            numberOfPages > 1 else { return }
 
         let rect = CGRect(x: 0, y: 0, width: self.diameter, height: self.diameter).insetBy(dx: 1, dy: 1)
 

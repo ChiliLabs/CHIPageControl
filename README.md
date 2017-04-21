@@ -25,7 +25,7 @@ Just add the `CHIPageControl` folder to your project.
 
 use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'CHIPageControl', '~> 0.1.2'
+pod 'CHIPageControl', '~> 0.1.3'
 
 # individual page control
 pod 'CHIPageControl/Aji'
@@ -41,7 +41,7 @@ pod 'CHIPageControl/Puya'
 
 use [Carthage](https://github.com/Carthage/Carthage) with Cartfile
 ```ogdl
-github "ChiliLabs/CHIPageControl" ~> 0.1.2
+github "ChiliLabs/CHIPageControl" ~> 0.1.3
 ```
 
 

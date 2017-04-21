@@ -93,7 +93,8 @@ open class CHIPageControlPaprika: CHIBasePageControl {
     
     override func update(for progress: Double) {
         guard let min = self.min,
-            let max = self.max else {
+            let max = self.max,
+            numberOfPages > 1 else {
                 return
         }
         var progress = progress
