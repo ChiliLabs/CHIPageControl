@@ -91,9 +91,9 @@ open class CHIPageControlPuya: CHIBasePageControl {
 
     override func update(for progress: Double) {
         guard let min = self.min,
-              let max = self.max,
-              progress >= 0 && progress <= Double(numberOfPages - 1),
-              numberOfPages > 1 else {
+            let max = self.max,
+            progress >= 0 && progress <= Double(numberOfPages - 1),
+            numberOfPages > 1 else {
                 return
         }
 
@@ -101,11 +101,11 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let dist = max.origin.x - min.origin.x
         let percent = CGFloat(progress / total)
         let page = Int(progress)
-        
+
         for (index, _) in self.frames.enumerated() {
-            if page > index {
-                self.elements[index+1].frame = self.frames[index]
-            } else if page < index {
+            if page > index && index + 1 < elements.count {
+                self.elements[index + 1].frame = self.frames[index]
+            } else if page < index && index < elements.count {
                 self.elements[index].frame = self.frames[index]
             }
         }
@@ -118,7 +118,9 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let index = page + 1
         guard elements.indices.contains(index) else { return }
         let element = elements[index]
-        guard frames.indices.contains(page), frames.indices.contains(page + 1) else { return }
+
+        guard frames.indices.contains(page),
+            frames.indices.contains(page + 1) else { return }
 
         let prev = frames[page]
         let current = frames[page + 1]
