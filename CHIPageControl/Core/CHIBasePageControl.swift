@@ -109,7 +109,7 @@ import UIKit
         self.displayLink?.add(to: .current, forMode: .commonModes)
     }
 
-    internal func updateFrame() {
+    @objc internal func updateFrame() {
         self.animate()
     }
     
