@@ -58,6 +58,18 @@ pageControl.tintColor = .red
 pageControl.currentPageTintColor = .green
 pageControl.padding = 6
 ```
+
+### Adding multiple tintColors
+``` swift
+// The size of the array needs to match the numberOfPages or it will throw an fatal error
+pageControl.tintColors = [UIColor.black, UIColor.yellow, UIColor.black, UIColor.black]
+
+// or
+
+// If it is the first one, it will fill all colors with the selected tintColor and then replace the colors with the desired one
+pageControl.insertTintColor(UIColor.yellow, position: 1)
+```
+
 ### Updating progress
 ``` swift
 //update dynamically
