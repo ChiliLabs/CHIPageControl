@@ -29,6 +29,7 @@ import UIKit
 
     @IBInspectable open var numberOfPages: Int = 0 {
         didSet {
+            populateTintColors()
             updateNumberOfPages(numberOfPages)
             self.isHidden = hidesForSinglePage && numberOfPages <= 1
         }
@@ -83,6 +84,15 @@ import UIKit
             setNeedsLayout()
         }
     }
+    
+    open var tintColors: [UIColor] = [] {
+        didSet {
+            guard tintColors.count == numberOfPages else {
+                fatalError("The number of tint colors needs to be the same as the number of page")
+            }
+            setNeedsLayout()
+        }
+    }
 
     @IBInspectable open var currentPageTintColor: UIColor? {
         didSet {
@@ -122,6 +132,35 @@ import UIKit
         }
     }
     
+    func tintColor(position: Int) -> UIColor {
+        if tintColors.count < numberOfPages {
+            return tintColor
+        } else {
+            return tintColors[position]
+        }
+    }
+    
+    open func insertTintColor(_ color: UIColor, position: Int) {
+        if tintColors.count < numberOfPages {
+            setupTintColors()
+        }
+        tintColors[position] = color
+    }
+    
+    private func setupTintColors() {
+        tintColors = Array<UIColor>(repeating: tintColor, count: numberOfPages)
+    }
+    
+    private func populateTintColors() {
+        guard tintColors.count > 0 else { return }
+        
+        if tintColors.count > numberOfPages {
+            tintColors = Array(tintColors.prefix(numberOfPages))
+        } else if tintColors.count < numberOfPages {
+            tintColors.append(contentsOf: Array<UIColor>(repeating: tintColor, count: numberOfPages - tintColors.count))
+        }
+    }
+    
     func animate() {
         guard let moveToProgress = self.moveToProgress else { return }
         
@@ -157,5 +196,19 @@ import UIKit
     
     func update(for progress: Double) {
         fatalError("Should be implemented in child class")
+    }
+}
+
+extension CHIBasePageControl {
+    internal func blend(color1: UIColor, color2: UIColor, progress: CGFloat) -> UIColor {
+        let l1 = 1 - progress
+        let l2 = progress
+        var (r1, g1, b1, a1): (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        var (r2, g2, b2, a2): (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        
+        color1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+        color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+        
+        return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
     }
 }
