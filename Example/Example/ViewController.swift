@@ -13,12 +13,22 @@ class ViewController: UIViewController {
 
     internal let numberOfPages = 4
     @IBOutlet var pageControls: [CHIBasePageControl]!
+    @IBOutlet var coloredPageControls: [CHIBasePageControl]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pageControls.forEach { (control) in
             control.numberOfPages = self.numberOfPages
         }
+        
+        // You can insert tint colors to a position (it will replace that position with the selected color)
+        coloredPageControls.forEach { (control) in
+            control.insertTintColor(randomColor(), position: Int(arc4random_uniform(UInt32(numberOfPages))))
+            control.insertTintColor(randomColor(), position: Int(arc4random_uniform(UInt32(numberOfPages))))
+        }
+        
+        // You can also initialize the tintColors with an array
+        coloredPageControls.last?.tintColors = [randomColor(), randomColor(), randomColor(), randomColor()]
     }
 
     func randomColor() -> UIColor{
@@ -56,7 +66,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         let progress = percent * Double(self.numberOfPages - 1)
         
-        self.pageControls.forEach { (control) in
+        (self.pageControls + self.coloredPageControls).forEach { (control) in
             control.progress = progress
         }
     }
