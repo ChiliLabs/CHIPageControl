@@ -67,11 +67,11 @@ open class CHIPageControlChimayo: CHIBasePageControl {
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
-        inactive.forEach() { layer in
+        inactive.enumerated().forEach() { index, layer in
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
-            layer.backgroundColor = self.tintColor.cgColor
+            layer.backgroundColor = self.tintColor(position: index).cgColor
         }
         update(for: progress)
     }
