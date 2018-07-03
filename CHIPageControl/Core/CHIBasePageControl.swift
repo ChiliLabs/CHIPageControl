@@ -115,7 +115,7 @@ import UIKit
     }
     
     internal func setupDisplayLink() {
-        self.displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
+        self.displayLink = CADisplayLink(target: WeakProxy(self), selector: #selector(updateFrame))
         self.displayLink?.add(to: .current, forMode: .commonModes)
     }
 
@@ -197,6 +197,11 @@ import UIKit
     func update(for progress: Double) {
         fatalError("Should be implemented in child class")
     }
+
+    deinit {
+        self.displayLink?.remove(from: .current, forMode: .commonModes)
+        self.displayLink?.invalidate()
+    }
 }
 
 extension CHIBasePageControl {
@@ -210,5 +215,23 @@ extension CHIBasePageControl {
         color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
         
         return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
+    }
+}
+
+final class WeakProxy: NSObject {
+    weak var target: NSObjectProtocol?
+
+    init(_ target: NSObjectProtocol) {
+        self.target = target
+        super.init()
+    }
+
+    override func responds(to aSelector: Selector!) -> Bool {
+        guard let target = target else { return super.responds(to: aSelector) }
+        return target.responds(to: aSelector)
+    }
+
+    override func forwardingTarget(for aSelector: Selector!) -> Any? {
+        return target
     }
 }

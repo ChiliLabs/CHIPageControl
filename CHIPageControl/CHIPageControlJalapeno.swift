@@ -97,7 +97,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
             middleX = rightX
         }
         
-        let top = (self.frame.size.height - self.diameter)*0.5
+        let top = (self.bounds.size.height - self.diameter)*0.5
         
         let points:[CGPoint] = [
             CGPoint(x:leftX, y:radius + top),

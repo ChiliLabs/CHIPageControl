@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     internal let numberOfPages = 4
     @IBOutlet var pageControls: [CHIBasePageControl]!
     @IBOutlet var coloredPageControls: [CHIBasePageControl]!
-    
+    @IBOutlet weak var verticalPageControl: CHIPageControlJalapeno!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pageControls.forEach { (control) in
@@ -29,6 +30,9 @@ class ViewController: UIViewController {
         
         // You can also initialize the tintColors with an array
         coloredPageControls.last?.tintColors = [randomColor(), randomColor(), randomColor(), randomColor()]
+
+        //you can display page control vertical
+        self.verticalPageControl.transform = self.pageControls.last!.transform.rotated(by: .pi/2)
     }
 
     func randomColor() -> UIColor{
