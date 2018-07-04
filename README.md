@@ -78,6 +78,22 @@ pageControl.progress = 0.5
 //set progress with animation
 pageControl.set(progress: 2, animated: true)
 ```
+
+### Touch events
+
+You can hear touch events in any of the page indicators. 
+``` swift
+pageControl.enableTouchEvents = true
+```
+
+### Delegate
+
+Implement the `CHIBasePageControlDelegate` to catch touch events.
+
+```swift
+func didTouch(pager: CHIBasePageControl, index: Int)
+```
+
 ### Page Controls 🌶️🌶️🌶️
 
 <img src="Images/Aji.gif" width="100" height="50"> CHIPageControlAji
