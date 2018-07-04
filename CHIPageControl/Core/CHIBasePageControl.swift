@@ -164,13 +164,19 @@ import UIKit
     }
     
     private var tapEvent: UITapGestureRecognizer?
-    open func enableTouch() {
+    @IBInspectable open var enableTouchEvents: Bool = false {
+        didSet {
+            enableTouchEvents ? enableTouch() : disableTouch()
+        }
+    }
+    
+    private func enableTouch() {
         if tapEvent == nil {
             setupTouchEvent()
         }
     }
     
-    open func disableTouch() {
+    private func disableTouch() {
         if tapEvent != nil {
             removeGestureRecognizer(tapEvent!)
             tapEvent = nil
