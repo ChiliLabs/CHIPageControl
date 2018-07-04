@@ -32,6 +32,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
     }
 
     fileprivate var elements = [CHILayer]()
+    fileprivate var orderedElements = [CHILayer]()
 
     fileprivate var frames = [CGRect]()
     fileprivate var min: CGRect?
@@ -162,5 +163,26 @@ open class CHIPageControlFresno: CHIBasePageControl {
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return CGSize(width: CGFloat(elements.count) * self.diameter + CGFloat(elements.count - 1) * self.padding,
                       height: self.diameter)
+    }
+    
+    override open func didTouch(gesture: UITapGestureRecognizer) {
+        var touchIndex: Int?
+        let point = gesture.location(ofTouch: 0, in: self)
+        elements.enumerated().forEach({ count, layer in
+            if layer.hitTest(point) != nil {
+                touchIndex = count
+            }
+        })
+        if touchIndex != nil {
+            let intProgress = Int(progress)
+            if intProgress > 0 {
+                if touchIndex == 0 {
+                    touchIndex = intProgress
+                } else if touchIndex! <= intProgress {
+                    touchIndex! -= 1
+                }
+            }
+            delegate?.didTouch(pager: self, index: touchIndex!)
+        }
     }
 }
