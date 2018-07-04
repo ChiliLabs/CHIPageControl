@@ -151,4 +151,17 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         return CGSize(width: CGFloat(inactive.count) * self.diameter + CGFloat(inactive.count - 1) * self.padding,
                       height: self.diameter)
     }
+    
+    override open func didTouch(gesture: UITapGestureRecognizer) {
+        var touchIndex: Int?
+        let point = gesture.location(ofTouch: 0, in: self)
+        inactive.enumerated().forEach({ count, layer in
+            if layer.hitTest(point) != nil {
+                touchIndex = count
+            }
+        })
+        if touchIndex != nil {
+            delegate?.didTouch(pager: self, index: touchIndex!)
+        }
+    }
 }
