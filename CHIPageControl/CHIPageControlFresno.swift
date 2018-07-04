@@ -32,7 +32,6 @@ open class CHIPageControlFresno: CHIBasePageControl {
     }
 
     fileprivate var elements = [CHILayer]()
-    fileprivate var orderedElements = [CHILayer]()
 
     fileprivate var frames = [CGRect]()
     fileprivate var min: CGRect?
