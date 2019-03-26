@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Chili' => 'studio@chi.lv' }
   s.source           = { :git => 'https://github.com/ChiliLabs/CHIPageControl.git', :tag => s.version.to_s }
+  s.swift_version    = '4.2'
 
   s.source_files = 'CHIPageControl/*.swift', 'CHIPageControl/Core/*.swift'
 
