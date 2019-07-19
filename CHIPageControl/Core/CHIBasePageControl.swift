@@ -188,7 +188,7 @@ import UIKit
         addGestureRecognizer(tapEvent!)
     }
     
-    internal func didTouch(gesture: UITapGestureRecognizer) {}
+    @objc internal func didTouch(gesture: UITapGestureRecognizer) {}
     
     func animate() {
         guard let moveToProgress = self.moveToProgress else { return }
