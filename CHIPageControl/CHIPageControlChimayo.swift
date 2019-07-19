@@ -94,7 +94,7 @@ open class CHIPageControlChimayo: CHIBasePageControl {
 
         let mask = { (index: Int, layer: CHILayer) in
             let mask = CAShapeLayer()
-            mask.fillRule = kCAFillRuleEvenOdd
+            mask.fillRule = CAShapeLayerFillRule.evenOdd
             let bounds = UIBezierPath(rect: layer.bounds)
             switch index {
             case page:

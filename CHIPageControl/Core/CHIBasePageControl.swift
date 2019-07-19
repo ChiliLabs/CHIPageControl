@@ -118,7 +118,7 @@ import UIKit
     
     internal func setupDisplayLink() {
         self.displayLink = CADisplayLink(target: WeakProxy(self), selector: #selector(updateFrame))
-        self.displayLink?.add(to: .current, forMode: .commonModes)
+        self.displayLink?.add(to: .current, forMode: .common)
     }
 
     @objc internal func updateFrame() {
@@ -228,7 +228,7 @@ import UIKit
     }
 
     deinit {
-        self.displayLink?.remove(from: .current, forMode: .commonModes)
+        self.displayLink?.remove(from: .current, forMode: .common)
         self.displayLink?.invalidate()
     }
 }
