@@ -25,9 +25,7 @@
 
 import UIKit
 
-open class CHIPageControlSanpedro: CHIBasePageControl {
-    fileprivate let multScalar = 8.0
-    
+open class CHIPageControlSanpedro: CHIBasePageControl {    
     fileprivate var diameter: CGFloat {
         return radius * 2
     }
@@ -66,16 +64,13 @@ open class CHIPageControlSanpedro: CHIBasePageControl {
         let normalized = progress * Double(diameter + padding)
         let distance = abs(round(progress) - progress)
         
-        print("Normalized : \(normalized)")
-        print("Distance : \(distance)")
-        
-        let mult = 1 + distance * multScalar
-        print("Mult : \(mult)")
+        let mult = 1 - distance
+        let multPadding = 1 - (distance*2)
 
         var frame = active.frame
 
         frame.origin.x = CGFloat(normalized) + firstFrame.origin.x
-        frame.size.width = (frame.height * 2 + padding) * (1/CGFloat(mult))
+        frame.size.width = (frame.height * 2 + (padding * CGFloat(multPadding))) * CGFloat(mult)
         frame.size.height = self.diameter
 
         active.frame = frame
