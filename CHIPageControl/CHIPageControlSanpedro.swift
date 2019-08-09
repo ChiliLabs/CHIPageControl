@@ -61,16 +61,18 @@ open class CHIPageControlSanpedro: CHIBasePageControl {
             let firstFrame = self.inactive.first?.frame,
             numberOfPages > 1 else { return }
 
-        let normalized = progress * Double(diameter + padding)
         let distance = abs(round(progress) - progress)
+        let distanceAbs = floor(progress) - progress
+        let distanceClosest = max(0.0, -distanceAbs - 0.5)
         
-        let mult = 1 - distance
-        let multPadding = 1 - (distance*2)
-
+        let segment = (frame.height * 2) + padding
+        
         var frame = active.frame
 
-        frame.origin.x = CGFloat(normalized) + firstFrame.origin.x
-        frame.size.width = (frame.height * 2 + (padding * CGFloat(multPadding))) * CGFloat(mult)
+        frame.origin.x = firstFrame.origin.x +
+            CGFloat(floor(progress) * Double(diameter + padding)) +
+            CGFloat((distanceClosest * 2) * Double(diameter + padding))
+        frame.size.width = segment + ((frame.height + padding) * CGFloat(distance) * 2)
         frame.size.height = self.diameter
 
         active.frame = frame
