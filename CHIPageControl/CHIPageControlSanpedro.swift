@@ -78,16 +78,11 @@ open class CHIPageControlSanpedro: CHIBasePageControl {
 
     override open func layoutSubviews() {
         super.layoutSubviews()
-        
-        print ("Updating subviews")
-        
+
         let floatCount = CGFloat(inactive.count)
         
-        print ("floatCount : \(floatCount)")
         let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
         let y = (self.bounds.size.height - self.diameter)*0.5
-        print ("X : \(x)")
-        print ("Y : \(y)")
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         active.cornerRadius = self.radius
