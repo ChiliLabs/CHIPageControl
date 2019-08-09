@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -67,7 +67,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deJ-g4-VW8" userLabel="Colored Page Control Fresno" customClass="CHIPageControlJalapeno" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="457" width="47" height="8"/>
+                                <rect key="frame" x="164" y="437" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -85,9 +85,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-p9-Xqb" userLabel="Vertical Page Control Jalapeno" customClass="CHIPageControlJalapeno" customModule="CHIPageControl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-p9-Xqb" userLabel="Vertical Page Control Jalapeno" customClass="CHIPageControlJalapeno" customModule="CHIPageControl">
                                 <rect key="frame" x="20" y="70" width="47" height="8"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -106,7 +105,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOY-UP-9br" userLabel="Colored Page Control Jalapeno" customClass="CHIPageControlJalapeno" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="477" width="47" height="8"/>
+                                <rect key="frame" x="164" y="457" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -125,7 +124,32 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-qI-pML" customClass="CHIPageControlAji" customModule="CHIPageControl">
-                                <rect key="frame" x="163.5" y="643" width="47" height="8"/>
+                                <rect key="frame" x="164" y="623" width="47" height="8"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inactiveTransparency">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKK-8K-EsZ" customClass="CHIPageControlSanpedro" customModule="CHIPageControl">
+                                <rect key="frame" x="164" y="643" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -150,7 +174,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nud-cF-PvK" customClass="CHIPageControlJalapeno" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="623" width="47" height="8"/>
+                                <rect key="frame" x="164" y="603" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -169,7 +193,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFD-kM-D2z" customClass="CHIPageControlAleppo" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="603" width="47" height="8"/>
+                                <rect key="frame" x="164" y="583" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -194,25 +218,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hO9-ia-7rz" customClass="CHIPageControlChimayo" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="583" width="47" height="8"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cC-7g-N9D" customClass="CHIPageControlFresno" customModule="CHIPageControl">
                                 <rect key="frame" x="164" y="563" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -231,8 +236,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cC-7g-N9D" customClass="CHIPageControlFresno" customModule="CHIPageControl">
+                                <rect key="frame" x="164" y="543" width="47" height="8"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b83-NZ-aYL" customClass="CHIPageControlJaloro" customModule="CHIPageControl">
-                                <rect key="frame" x="156" y="549" width="63" height="2"/>
+                                <rect key="frame" x="156" y="529" width="63" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -257,7 +281,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AvK-se-ff2" customClass="CHIPageControlPaprika" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="529" width="47" height="8"/>
+                                <rect key="frame" x="164" y="509" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -282,7 +306,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tsb-QT-eRX" customClass="CHIPageControlPuya" customModule="CHIPageControl">
-                                <rect key="frame" x="164" y="509" width="47" height="8"/>
+                                <rect key="frame" x="164" y="489" width="47" height="8"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -307,22 +331,26 @@
                             <constraint firstItem="Nud-cF-PvK" firstAttribute="top" secondItem="nFD-kM-D2z" secondAttribute="bottom" constant="12" id="3ll-un-hkH"/>
                             <constraint firstItem="nqO-qI-pML" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4K2-Ld-AO1"/>
                             <constraint firstItem="2cC-7g-N9D" firstAttribute="top" secondItem="b83-NZ-aYL" secondAttribute="bottom" constant="12" id="9ih-2h-CHi"/>
+                            <constraint firstItem="JKK-8K-EsZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9mA-3s-qla"/>
                             <constraint firstItem="hO9-ia-7rz" firstAttribute="top" secondItem="2cC-7g-N9D" secondAttribute="bottom" constant="12" id="CKS-2v-8ip"/>
+                            <constraint firstItem="H9V-p9-Xqb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="EV6-jZ-Bae"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4cQ-aC-aBf" secondAttribute="bottom" id="EkY-QL-8TU"/>
                             <constraint firstItem="nFD-kM-D2z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GNK-4Z-Bki"/>
                             <constraint firstItem="NOY-UP-9br" firstAttribute="top" secondItem="deJ-g4-VW8" secondAttribute="bottom" constant="12" id="IF2-N6-Vi0"/>
                             <constraint firstItem="4cQ-aC-aBf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ILf-qC-VoO"/>
                             <constraint firstItem="NOY-UP-9br" firstAttribute="centerX" secondItem="4cQ-aC-aBf" secondAttribute="centerX" id="JB6-ep-9LA"/>
                             <constraint firstItem="Nud-cF-PvK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JYJ-V8-YUl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nqO-qI-pML" secondAttribute="bottom" constant="16" id="LdD-3D-QqB"/>
+                            <constraint firstItem="JKK-8K-EsZ" firstAttribute="top" secondItem="nqO-qI-pML" secondAttribute="bottom" constant="12" id="LdD-3D-QqB"/>
                             <constraint firstItem="nFD-kM-D2z" firstAttribute="top" secondItem="hO9-ia-7rz" secondAttribute="bottom" constant="12" id="OJz-Fu-bDq"/>
                             <constraint firstItem="deJ-g4-VW8" firstAttribute="centerX" secondItem="4cQ-aC-aBf" secondAttribute="centerX" id="Pl9-Hx-eVe"/>
                             <constraint firstItem="AvK-se-ff2" firstAttribute="top" secondItem="Tsb-QT-eRX" secondAttribute="bottom" constant="12" id="SXi-6F-Ieg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JKK-8K-EsZ" secondAttribute="bottom" constant="16" id="Tv1-uJ-Vu6"/>
                             <constraint firstItem="4cQ-aC-aBf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="X8k-yT-Lhx"/>
                             <constraint firstItem="Tsb-QT-eRX" firstAttribute="top" secondItem="NOY-UP-9br" secondAttribute="bottom" constant="24" id="aGe-en-wFN"/>
                             <constraint firstItem="nqO-qI-pML" firstAttribute="top" secondItem="Nud-cF-PvK" secondAttribute="bottom" constant="12" id="cWJ-TV-cHI"/>
                             <constraint firstItem="Tsb-QT-eRX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fXy-EK-L2l"/>
                             <constraint firstAttribute="trailing" secondItem="4cQ-aC-aBf" secondAttribute="trailing" id="g7q-ed-eWs"/>
+                            <constraint firstItem="H9V-p9-Xqb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="rjz-yM-R0p"/>
                             <constraint firstItem="hO9-ia-7rz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sYg-cy-IGx"/>
                             <constraint firstItem="b83-NZ-aYL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u0R-rM-vAb"/>
                             <constraint firstItem="AvK-se-ff2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ypH-k6-MMu"/>
