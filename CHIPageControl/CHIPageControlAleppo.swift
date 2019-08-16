@@ -110,15 +110,9 @@ open class CHIPageControlAleppo: CHIBasePageControl {
     }
     
     override open func didTouch(gesture: UITapGestureRecognizer) {
-        var touchIndex: Int?
         let point = gesture.location(ofTouch: 0, in: self)
-        inactive.enumerated().forEach({ count, layer in
-            if layer.hitTest(point) != nil {
-                touchIndex = count
-            }
-        })
-        if touchIndex != nil {
-            delegate?.didTouch(pager: self, index: touchIndex!)
+        if let touchIndex = inactive.enumerated().first(where: { $0.element.hitTest(point) != nil })?.offset {
+            delegate?.didTouch(pager: self, index: touchIndex)
         }
     }
 }
