@@ -105,6 +105,7 @@ open class CHIPageControlChimayo: CHIBasePageControl {
                 bounds.append(UIBezierPath(ovalIn: rect))
             }
             mask.path = bounds.cgPath
+            mask.frame = layer.bounds
             layer.mask = mask
         }
 
@@ -120,5 +121,12 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return CGSize(width: CGFloat(inactive.count) * self.diameter + CGFloat(inactive.count - 1) * self.padding,
                       height: self.diameter)
+    }
+    
+    override open func didTouch(gesture: UITapGestureRecognizer) {
+        let point = gesture.location(ofTouch: 0, in: self)
+        if let touchIndex = inactive.enumerated().first(where: { $0.element.hitTest(point) != nil })?.offset {
+            delegate?.didTouch(pager: self, index: touchIndex)
+        }
     }
 }

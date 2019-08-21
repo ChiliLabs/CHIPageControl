@@ -26,6 +26,8 @@
 import UIKit
 
 @IBDesignable open class CHIBasePageControl: UIControl, CHIPageControllable {
+    
+    open weak var delegate: CHIBasePageControlDelegate?
 
     @IBInspectable open var numberOfPages: Int = 0 {
         didSet {
@@ -161,6 +163,33 @@ import UIKit
         }
     }
     
+    private var tapEvent: UITapGestureRecognizer?
+    @IBInspectable open var enableTouchEvents: Bool = false {
+        didSet {
+            enableTouchEvents ? enableTouch() : disableTouch()
+        }
+    }
+    
+    private func enableTouch() {
+        if tapEvent == nil {
+            setupTouchEvent()
+        }
+    }
+    
+    private func disableTouch() {
+        if tapEvent != nil {
+            removeGestureRecognizer(tapEvent!)
+            tapEvent = nil
+        }
+    }
+    
+    internal func setupTouchEvent() {
+        tapEvent = UITapGestureRecognizer(target: self, action: #selector(self.didTouch(gesture:)))
+        addGestureRecognizer(tapEvent!)
+    }
+    
+    @objc internal func didTouch(gesture: UITapGestureRecognizer) {}
+    
     func animate() {
         guard let moveToProgress = self.moveToProgress else { return }
         
@@ -216,6 +245,10 @@ extension CHIBasePageControl {
         
         return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
     }
+}
+
+public protocol CHIBasePageControlDelegate: class {
+    func didTouch(pager: CHIBasePageControl, index: Int)
 }
 
 final class WeakProxy: NSObject {

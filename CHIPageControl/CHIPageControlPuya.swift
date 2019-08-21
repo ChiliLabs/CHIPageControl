@@ -142,4 +142,19 @@ open class CHIPageControlPuya: CHIBasePageControl {
         return CGSize(width: CGFloat(elements.count) * self.diameter + CGFloat(elements.count - 1) * self.padding,
                       height: self.diameter)
     }
+    
+    override open func didTouch(gesture: UITapGestureRecognizer) {
+        let point = gesture.location(ofTouch: 0, in: self)
+        if var touchIndex = elements.enumerated().first(where: { $0.element.hitTest(point) != nil })?.offset {
+            let intProgress = Int(progress)
+            if intProgress > 0 {
+                if touchIndex == 0 {
+                    touchIndex = intProgress
+                } else if touchIndex <= intProgress {
+                    touchIndex -= 1
+                }
+            }
+            delegate?.didTouch(pager: self, index: touchIndex)
+        }
+    }
 }

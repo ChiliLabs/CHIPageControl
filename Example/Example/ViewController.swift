@@ -33,6 +33,14 @@ class ViewController: UIViewController {
 
         //you can display page control vertical
         self.verticalPageControl.transform = self.pageControls.last!.transform.rotated(by: .pi/2)
+        
+        //you can activate touch through code
+        self.verticalPageControl.enableTouchEvents = true
+        self.verticalPageControl.delegate = self
+        
+        self.coloredPageControls.forEach({ pager in
+            pager.delegate = self
+        })
     }
 
     func randomColor() -> UIColor{
@@ -41,6 +49,12 @@ class ViewController: UIViewController {
                        blue: CGFloat(drand48()),
                        alpha: 1.0)
         
+    }
+}
+
+extension ViewController: CHIBasePageControlDelegate {
+    func didTouch(pager: CHIBasePageControl, index: Int) {
+        print(pager, index)
     }
 }
 

@@ -116,5 +116,10 @@ open class CHIPageControlJaloro: CHIBasePageControl {
                       height: self.elementHeight)
     }
 
-
+    override open func didTouch(gesture: UITapGestureRecognizer) {
+        let point = gesture.location(ofTouch: 0, in: self)
+        if let touchIndex = inactive.enumerated().first(where: { $0.element.hitTest(point) != nil })?.offset {
+            delegate?.didTouch(pager: self, index: touchIndex)
+        }
+    }
 }
