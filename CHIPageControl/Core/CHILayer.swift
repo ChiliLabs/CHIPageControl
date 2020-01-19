@@ -26,7 +26,7 @@
 
 import QuartzCore
 
-class CHILayer: CAShapeLayer {
+public class CHILayer: CAShapeLayer {
 
 
     override init() {
