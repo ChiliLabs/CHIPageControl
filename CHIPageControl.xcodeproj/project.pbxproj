@@ -25,6 +25,7 @@
 		4313A8191E7A99F20015A568 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */; };
 		4313A8251E7AA0310015A568 /* CHIBasePageControl.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7DD1E7A92320015A568 /* CHIBasePageControl.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		43EE766F1E7AA29E002140B5 /* CHIPageControlJaloro.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7D91E7A92320015A568 /* CHIPageControlJaloro.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		8429CFF323D490F70033E9B7 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429CFF223D490F70033E9B7 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		4313A7EE1E7A92B30015A568 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4313A7F21E7A92C40015A568 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8429CFF223D490F70033E9B7 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		4313A7821E7A831E0015A568 = {
 			isa = PBXGroup;
 			children = (
+				8429CFF223D490F70033E9B7 /* Package.swift */,
 				4313A78E1E7A831E0015A568 /* CHIPageControl */,
 				4313A78D1E7A831E0015A568 /* Products */,
 				4313A7EB1E7A92970015A568 /* Frameworks */,
@@ -164,7 +167,7 @@
 				TargetAttributes = {
 					4313A78B1E7A831E0015A568 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4J5NY3YD66;
+						DevelopmentTeam = QE63XWGL5N;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8429CFF323D490F70033E9B7 /* Package.swift in Sources */,
 				4313A7E61E7A92320015A568 /* CHIPageControlPaprika.swift in Sources */,
 				4313A7E31E7A92320015A568 /* CHIPageControlFresno.swift in Sources */,
 				4313A7E21E7A92320015A568 /* CHIPageControlChimayo.swift in Sources */,
@@ -343,7 +347,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4J5NY3YD66;
+				DEVELOPMENT_TEAM = QE63XWGL5N;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -364,7 +368,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4J5NY3YD66;
+				DEVELOPMENT_TEAM = QE63XWGL5N;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
