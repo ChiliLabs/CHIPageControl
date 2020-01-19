@@ -24,6 +24,9 @@
 // THE SOFTWARE.
 
 import UIKit
+#if SWIFT_PACKAGE
+import CHIPageControl
+#endif
 
 open class CHIPageControlJalapeno: CHIBasePageControl {
     
