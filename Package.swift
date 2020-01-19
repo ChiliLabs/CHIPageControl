@@ -14,14 +14,14 @@ let package = Package(
         // .library(name: "Aleppo",  targets: ["Aleppo"]),
         // .library(name: "Chimayo",  targets: ["Chimayo"]),
         // .library(name: "Fresno",  targets: ["Fresno"]),
-        .library(name: "CHIPageControl",  targets: ["Jalapeno"])//,
+        .library(name: "Jalapeno",  targets: ["CHIPageControl", "Jalapeno"])//,
         // .library(name: "Jaloro",  targets: ["Jaloro"]),
         // .library(name: "Paprika",  targets: ["Paprika"]),
         // .library(name: "Puya",  targets: ["Puya"])
     ],
     dependencies: [],
     targets: [
-        // .target(name: "CHIPageControl", path: "CHIPageControl/Core"),
+        .target(name: "CHIPageControl", path: "CHIPageControl/Core"),
         // .target(name: "Aji", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAji.swift"]),
         // .target(name: "Aleppo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAleppo.swift"]),
         // .target(name: "Chimayo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlChimayo.swift"]),
