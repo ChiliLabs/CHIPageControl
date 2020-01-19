@@ -14,7 +14,7 @@ let package = Package(
         // .library(name: "Aleppo",  targets: ["Aleppo"]),
         // .library(name: "Chimayo",  targets: ["Chimayo"]),
         // .library(name: "Fresno",  targets: ["Fresno"]),
-        .library(name: "Jalapeno",  targets: ["Jalapeno"])//,
+        .library(name: "CHIPageControl",  targets: ["Jalapeno"])//,
         // .library(name: "Jaloro",  targets: ["Jaloro"]),
         // .library(name: "Paprika",  targets: ["Paprika"]),
         // .library(name: "Puya",  targets: ["Puya"])
