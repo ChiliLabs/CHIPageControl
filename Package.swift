@@ -26,7 +26,7 @@ let package = Package(
         .target(name: "Aleppo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAleppo.swift"]),
         .target(name: "Chimayo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlChimayo.swift"]),
         .target(name: "Fresno", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlFresno.swift"]),
-        .target(name: "Jalapeno", path: "CHIPageControl", exclude: ["CHIPageControlAji.swift","CHIPageControlAleppo.swift",["CHIPageControlChimayo.swift", "CHIPageControlFresno.swift", "CHIPageControlJaloro.swift", "CHIPageControlPaprika.swift", "CHIPageControlPuya.swift"]),
+        .target(name: "Jalapeno", path: "CHIPageControl", sources: ["Core", "CHIPageControlJalapeno.swift"]),
         .target(name: "Jaloro", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlJaloro.swift"]),
         .target(name: "Paprika", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPaprika.swift"]),
         .target(name: "Puya", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPuya.swift"])
