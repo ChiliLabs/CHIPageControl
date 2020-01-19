@@ -9,7 +9,15 @@ let package = Package(
         .iOS(.v8),
     ],
     products: [
-        .library(name: "CHIPageControl",  targets: ["CHIPageControl", "Aji", "Aleppo", "Chimayo", "Fresno", "Jalapeno", "Jaloro", "Paprika", "Puya"])
+        .library(name: "CHIPageControl",  targets: ["CHIPageControl"]),
+        .library(name: "Aji",  targets: ["Aji"]),
+        .library(name: "Aleppo",  targets: ["Aleppo"]),
+        .library(name: "Chimayo",  targets: ["Chimayo"]),
+        .library(name: "Fresno",  targets: ["Fresno"]),
+        .library(name: "Jalapeno",  targets: ["Jalapeno"]),
+        .library(name: "Jaloro",  targets: ["Jaloro"]),
+        .library(name: "Paprika",  targets: ["Paprika"]),
+        .library(name: "Puya",  targets: ["Puya"])
     ],
     dependencies: [],
     targets: [
