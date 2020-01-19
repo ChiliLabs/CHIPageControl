@@ -9,27 +9,27 @@ let package = Package(
         .iOS(.v8),
     ],
     products: [
-        .library(name: "CHIPageControl",  targets: ["CHIPageControl"]),
-        .library(name: "Aji",  targets: ["Aji"]),
-        .library(name: "Aleppo",  targets: ["Aleppo"]),
-        .library(name: "Chimayo",  targets: ["Chimayo"]),
-        .library(name: "Fresno",  targets: ["Fresno"]),
-        .library(name: "Jalapeno",  targets: ["Jalapeno"]),
-        .library(name: "Jaloro",  targets: ["Jaloro"]),
-        .library(name: "Paprika",  targets: ["Paprika"]),
-        .library(name: "Puya",  targets: ["Puya"])
+        // .library(name: "CHIPageControl",  targets: ["CHIPageControl"]),
+        // .library(name: "Aji",  targets: ["Aji"]),
+        // .library(name: "Aleppo",  targets: ["Aleppo"]),
+        // .library(name: "Chimayo",  targets: ["Chimayo"]),
+        // .library(name: "Fresno",  targets: ["Fresno"]),
+        .library(name: "Jalapeno",  targets: ["Jalapeno"])//,
+        // .library(name: "Jaloro",  targets: ["Jaloro"]),
+        // .library(name: "Paprika",  targets: ["Paprika"]),
+        // .library(name: "Puya",  targets: ["Puya"])
     ],
     dependencies: [],
     targets: [
-        .target(name: "CHIPageControl", path: "CHIPageControl/Core"),
-        .target(name: "Aji", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAji.swift"]),
-        .target(name: "Aleppo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAleppo.swift"]),
-        .target(name: "Chimayo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlChimayo.swift"]),
-        .target(name: "Fresno", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlFresno.swift"]),
-        .target(name: "Jalapeno", path: "CHIPageControl", sources: ["Core", "CHIPageControlJalapeno.swift"]),
-        .target(name: "Jaloro", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlJaloro.swift"]),
-        .target(name: "Paprika", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPaprika.swift"]),
-        .target(name: "Puya", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPuya.swift"])
+        // .target(name: "CHIPageControl", path: "CHIPageControl/Core"),
+        // .target(name: "Aji", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAji.swift"]),
+        // .target(name: "Aleppo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlAleppo.swift"]),
+        // .target(name: "Chimayo", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlChimayo.swift"]),
+        // .target(name: "Fresno", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlFresno.swift"]),
+        .target(name: "Jalapeno", path: "CHIPageControl", sources: ["Core", "CHIPageControlJalapeno.swift"])//,
+        // .target(name: "Jaloro", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlJaloro.swift"]),
+        // .target(name: "Paprika", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPaprika.swift"]),
+        // .target(name: "Puya", dependencies: ["CHIPageControl"], path: "CHIPageControl", sources: ["CHIPageControlPuya.swift"])
         
     ],
     swiftLanguageVersions: [.v5]
