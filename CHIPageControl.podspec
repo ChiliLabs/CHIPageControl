@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CHIPageControl'
-  s.version          = '0.2'
+  s.version          = '0.3.0'
   s.summary          = 'CHIPageControl is a set of cool animated page controls written in Swift to replace boring UIPageControl.'
 
   s.ios.deployment_target = '8.0'
