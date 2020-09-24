@@ -25,6 +25,8 @@
 		4313A8191E7A99F20015A568 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */; };
 		4313A8251E7AA0310015A568 /* CHIBasePageControl.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7DD1E7A92320015A568 /* CHIBasePageControl.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		43EE766F1E7AA29E002140B5 /* CHIPageControlJaloro.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7D91E7A92320015A568 /* CHIPageControlJaloro.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA6BD363251C7FAF002BEE3E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6BD362251C7FAF002BEE3E /* Storyboard.storyboard */; };
+		EA6BD366251C7FC4002BEE3E /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6BD365251C7FC4002BEE3E /* ExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4313A7EE1E7A92B30015A568 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4313A7F21E7A92C40015A568 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EA6BD362251C7FAF002BEE3E /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
+		EA6BD365251C7FC4002BEE3E /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				4313A7DB1E7A92320015A568 /* CHIPageControlPuya.swift */,
 				4313A7DC1E7A92320015A568 /* Core */,
 				4313A7901E7A831E0015A568 /* Info.plist */,
+				EA6BD362251C7FAF002BEE3E /* Storyboard.storyboard */,
+				EA6BD365251C7FC4002BEE3E /* ExampleViewController.swift */,
 			);
 			path = CHIPageControl;
 			sourceTree = "<group>";
@@ -193,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA6BD363251C7FAF002BEE3E /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 				4313A7E21E7A92320015A568 /* CHIPageControlChimayo.swift in Sources */,
 				4313A7E41E7A92320015A568 /* CHIPageControlJalapeno.swift in Sources */,
 				4313A7E71E7A92320015A568 /* CHIPageControlPuya.swift in Sources */,
+				EA6BD366251C7FC4002BEE3E /* ExampleViewController.swift in Sources */,
 				4313A7E81E7A92320015A568 /* CHIBasePageControl.swift in Sources */,
 				4313A7E11E7A92320015A568 /* CHIPageControlAleppo.swift in Sources */,
 				4313A7E51E7A92320015A568 /* CHIPageControlJaloro.swift in Sources */,

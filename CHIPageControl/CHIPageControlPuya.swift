@@ -70,7 +70,7 @@ open class CHIPageControlPuya: CHIBasePageControl {
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
             layer.cornerRadius = self.radius
             layer.frame = frame
@@ -79,7 +79,11 @@ open class CHIPageControlPuya: CHIBasePageControl {
 
         if let active = elements.first {
             active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
-            active.borderWidth = 0
+            active.borderWidth = self.currentPageBorderWidth
+            
+            if self.currentPageBorderWidth > 0 {
+                active.borderColor = (self.currentPageBorderColor ?? self.tintColor).cgColor
+            }
         }
 
         min = elements.first?.frame
