@@ -133,13 +133,20 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
         }
-        self.active.fillColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
+        
+        let activeTintColor = self.currentPageTintColor ?? self.tintColor
+        self.active.fillColor = activeTintColor?.cgColor
+        if self.currentPageBorderWidth > 0 {
+            self.active.borderWidth = self.currentPageBorderWidth
+            self.active.borderColor = (self.currentPageBorderColor ?? activeTintColor)?.cgColor
+        }
+        
         update(for: progress)
     }
     

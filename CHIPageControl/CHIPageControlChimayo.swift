@@ -72,6 +72,15 @@ open class CHIPageControlChimayo: CHIBasePageControl {
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
             layer.backgroundColor = self.tintColor(position: index).cgColor
+            
+            let isActive = index == Int(self.progress)
+            
+            layer.borderWidth = isActive ? self.currentPageBorderWidth : self.borderWidth
+            
+            if layer.borderWidth > 0 {
+                let borderColor = isActive ? self.currentPageBorderColor : self.borderColor
+                layer.borderColor = (borderColor ?? self.tintColor).cgColor
+            }
         }
         update(for: progress)
     }
@@ -79,8 +88,12 @@ open class CHIPageControlChimayo: CHIBasePageControl {
     override func update(for progress: Double) {
         guard progress >= 0 && progress <= Double(numberOfPages - 1),
             numberOfPages > 1 else { return }
-
-        let rect = CGRect(x: 0, y: 0, width: self.diameter, height: self.diameter).insetBy(dx: 1, dy: 1)
+        
+        var rect = CGRect(x: self.borderWidth, y: self.borderWidth, width: self.diameter - (self.borderWidth * 2), height: self.diameter - (self.borderWidth * 2))
+        
+        if self.borderWidth < 1 {
+            rect = rect.insetBy(dx: 1, dy: 1)
+        }
 
         let left = floor(progress)
         let page = Int(progress)

@@ -85,7 +85,7 @@ open class CHIPageControlPuya: CHIBasePageControl {
                 active.borderColor = (self.currentPageBorderColor ?? self.tintColor).cgColor
             }
         }
-
+        
         min = elements.first?.frame
         max = elements.last?.frame
 
