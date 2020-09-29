@@ -142,8 +142,9 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         
         let activeTintColor = self.currentPageTintColor ?? self.tintColor
         self.active.fillColor = activeTintColor?.cgColor
+        self.active.borderWidth = self.currentPageBorderWidth
+        
         if self.currentPageBorderWidth > 0 {
-            self.active.borderWidth = self.currentPageBorderWidth
             self.active.borderColor = (self.currentPageBorderColor ?? activeTintColor)?.cgColor
         }
         

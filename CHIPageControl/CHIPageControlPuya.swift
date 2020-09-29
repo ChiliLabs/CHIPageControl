@@ -68,10 +68,12 @@ open class CHIPageControlPuya: CHIBasePageControl {
 
         elements.enumerated().forEach() { index, layer in
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
+            layer.borderWidth = self.borderWidth
+            
             if self.borderWidth > 0 {
-                layer.borderWidth = self.borderWidth
                 layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
+            
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
