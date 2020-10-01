@@ -62,8 +62,8 @@ open class CHIPageControlPuya: CHIBasePageControl {
         super.layoutSubviews()
         
         let floatCount = CGFloat(elements.count)
-        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.bounds.size.height - self.diameter)*0.5
+        let x = (self.bounds.size.width - self.diameter * floatCount - self.padding * (floatCount - 1)) * 0.5
+        let y = (self.bounds.size.height - self.diameter) * 0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         elements.enumerated().forEach() { index, layer in
@@ -119,7 +119,6 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let offset = dist * percent
         guard let active = elements.first else { return }
         active.frame.origin.x = min.origin.x + offset
-        active.borderWidth = 0
 
         let index = page + 1
         guard elements.indices.contains(index) else { return }

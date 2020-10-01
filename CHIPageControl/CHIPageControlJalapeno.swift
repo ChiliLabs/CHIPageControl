@@ -34,8 +34,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
     }
     
     fileprivate var inactive = [CHILayer]()
-    
-    fileprivate var active: CHILayer = CHILayer()
+    fileprivate var active = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -100,10 +99,10 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         let top = (self.bounds.size.height - self.diameter)*0.5
         
         let points:[CGPoint] = [
-            CGPoint(x:leftX, y:radius + top),
-            CGPoint(x:middleX+radius, y:top),
-            CGPoint(x:rightX+radius*2, y:radius + top),
-            CGPoint(x:middleX+radius, y:radius*2 + top)
+            CGPoint(x: leftX, y: radius + top),
+            CGPoint(x: middleX + radius, y: top),
+            CGPoint(x: rightX + radius * 2, y: radius + top),
+            CGPoint(x: middleX + radius, y: radius * 2 + top)
         ]
         
         let offset: CGFloat = radius*0.55
@@ -115,6 +114,20 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         path.addCurve(to: points[3], controlPoint1: CGPoint(x:points[2].x, y: points[2].y+offset), controlPoint2: CGPoint(x:points[3].x+offset, y: points[3].y))
         path.addCurve(to: points[0], controlPoint1: CGPoint(x:points[3].x-offset, y: points[3].y), controlPoint2: CGPoint(x:points[0].x, y: points[0].y+offset))
         self.active.path = path.cgPath
+        
+        if self.currentPageBorderWidth > 0 {
+            self.active.sublayers?.forEach {
+                $0.removeFromSuperlayer()
+            }
+            
+            let borderPath = CAShapeLayer()
+            borderPath.path = path.cgPath
+            borderPath.fillColor = UIColor.clear.cgColor
+            borderPath.strokeColor = (self.currentPageBorderColor ?? self.tintColor)?.cgColor
+            borderPath.lineWidth = self.currentPageBorderWidth
+            borderPath.frame = self.active.bounds
+            self.active.addSublayer(borderPath)
+        }
         
         if progress.truncatingRemainder(dividingBy: 1) == 0 {
             self.lastPage = Int(progress)
@@ -140,13 +153,7 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
             frame.origin.x += self.diameter + self.padding
         }
         
-        let activeTintColor = self.currentPageTintColor ?? self.tintColor
-        self.active.fillColor = activeTintColor?.cgColor
-        self.active.borderWidth = self.currentPageBorderWidth
-        
-        if self.currentPageBorderWidth > 0 {
-            self.active.borderColor = (self.currentPageBorderColor ?? activeTintColor)?.cgColor
-        }
+        self.active.fillColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         
         update(for: progress)
     }

@@ -33,7 +33,7 @@ open class CHIPageControlAleppo: CHIBasePageControl {
 
     fileprivate var inactive = [CHILayer]()
 
-    fileprivate var active: CHILayer = CHILayer()
+    fileprivate var active = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

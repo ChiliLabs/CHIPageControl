@@ -62,26 +62,19 @@ open class CHIPageControlChimayo: CHIBasePageControl {
 
     override open func layoutSubviews() {
         super.layoutSubviews()
+        
         let floatCount = CGFloat(inactive.count)
         let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
-
+        
         inactive.enumerated().forEach() { index, layer in
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
             layer.backgroundColor = self.tintColor(position: index).cgColor
-            
-            let isActive = index == Int(self.progress)
-            
-            layer.borderWidth = isActive ? self.currentPageBorderWidth : self.borderWidth
-            
-            if layer.borderWidth > 0 {
-                let borderColor = isActive ? self.currentPageBorderColor : self.borderColor
-                layer.borderColor = (borderColor ?? self.tintColor).cgColor
-            }
         }
+        
         update(for: progress)
     }
 
@@ -124,7 +117,17 @@ open class CHIPageControlChimayo: CHIBasePageControl {
 
         for (index, layer) in inactive.enumerated() {
             mask(index, layer)
+            
+            layer.borderWidth = self.borderWidth
+            
+            if self.borderWidth > 0 {
+                layer.borderColor = (self.borderColor ?? self.tintColor).cgColor
+            }
         }
+        
+        let active = inactive[Int(progress)]
+        active.borderWidth = self.currentPageBorderWidth
+        active.borderColor = (self.currentPageBorderColor ?? self.tintColor)?.cgColor
     }
         
     override open var intrinsicContentSize: CGSize {
