@@ -76,12 +76,17 @@ open class CHIPageControlJaloro: CHIBasePageControl {
         active.cornerRadius = self.radius
         active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
+        
+        if self.currentPageBorderWidth > 0 {
+            active.borderWidth = self.currentPageBorderWidth
+            active.borderColor = (self.currentPageBorderColor ?? self.tintColor)?.cgColor
+        }
 
         inactive.enumerated().forEach() { index, layer in
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
             layer.cornerRadius = self.radius
             layer.frame = frame

@@ -62,16 +62,18 @@ open class CHIPageControlPuya: CHIBasePageControl {
         super.layoutSubviews()
         
         let floatCount = CGFloat(elements.count)
-        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.bounds.size.height - self.diameter)*0.5
+        let x = (self.bounds.size.width - self.diameter * floatCount - self.padding * (floatCount - 1)) * 0.5
+        let y = (self.bounds.size.height - self.diameter) * 0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
 
         elements.enumerated().forEach() { index, layer in
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
+            layer.borderWidth = self.borderWidth
+            
             if self.borderWidth > 0 {
-                layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
+            
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
@@ -79,9 +81,13 @@ open class CHIPageControlPuya: CHIBasePageControl {
 
         if let active = elements.first {
             active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
-            active.borderWidth = 0
+            active.borderWidth = self.currentPageBorderWidth
+            
+            if self.currentPageBorderWidth > 0 {
+                active.borderColor = (self.currentPageBorderColor ?? self.tintColor).cgColor
+            }
         }
-
+        
         min = elements.first?.frame
         max = elements.last?.frame
 
@@ -113,7 +119,6 @@ open class CHIPageControlPuya: CHIBasePageControl {
         let offset = dist * percent
         guard let active = elements.first else { return }
         active.frame.origin.x = min.origin.x + offset
-        active.borderWidth = 0
 
         let index = page + 1
         guard elements.indices.contains(index) else { return }

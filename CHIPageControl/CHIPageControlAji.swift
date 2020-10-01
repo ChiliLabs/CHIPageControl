@@ -67,12 +67,19 @@ open class CHIPageControlAji: CHIBasePageControl {
         active.cornerRadius = self.radius
         active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
         active.frame = frame
-
+        
+        if self.currentPageBorderWidth > 0 {
+            active.borderWidth = self.currentPageBorderWidth
+            active.borderColor = (self.currentPageBorderColor ?? self.tintColor).cgColor
+        }
+        
         inactive.enumerated().forEach() { index, layer in
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                
+                let borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
+                layer.borderColor = borderColor
             }
             layer.cornerRadius = self.radius
             layer.frame = frame
