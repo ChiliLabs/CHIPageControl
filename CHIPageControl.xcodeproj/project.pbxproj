@@ -66,7 +66,7 @@
 		4313A7821E7A831E0015A568 = {
 			isa = PBXGroup;
 			children = (
-				4313A78E1E7A831E0015A568 /* CHIPageControl */,
+				78C4F44A243DCCF700A529D3 /* Sources */,
 				4313A78D1E7A831E0015A568 /* Products */,
 				4313A7EB1E7A92970015A568 /* Frameworks */,
 			);
@@ -117,6 +117,14 @@
 				4313A7EC1E7A92970015A568 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78C4F44A243DCCF700A529D3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4313A78E1E7A831E0015A568 /* CHIPageControl */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +355,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CHIPageControl/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/CHIPageControl/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lv.chi.CHIPageControl;
@@ -368,7 +376,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CHIPageControl/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/CHIPageControl/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lv.chi.CHIPageControl;
