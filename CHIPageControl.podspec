@@ -12,38 +12,38 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/ChiliLabs/CHIPageControl.git', :tag => s.version.to_s }
   s.swift_version    = '5.0'
 
-  s.source_files = 'CHIPageControl/*.swift', 'CHIPageControl/Core/*.swift'
+  s.source_files = 'Sources/CHIPageControl/*.swift', 'Sources/CHIPageControl/Core/*.swift'
 
   s.subspec 'Aji' do |aji|
-    aji.source_files = 'CHIPageControl/CHIPageControlAji.swift', 'CHIPageControl/Core/*.swift'
+    aji.source_files = 'Sources/CHIPageControl/CHIPageControlAji.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Aleppo' do |aleppo|
-    aleppo.source_files = 'CHIPageControl/CHIPageControlAleppo.swift', 'CHIPageControl/Core/*.swift'
+    aleppo.source_files = 'Sources/CHIPageControl/CHIPageControlAleppo.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Chimayo' do |chimayo|
-    chimayo.source_files = 'CHIPageControl/CHIPageControlChimayo.swift', 'CHIPageControl/Core/*.swift'
+    chimayo.source_files = 'Sources/CHIPageControl/CHIPageControlChimayo.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Fresno' do |fresno|
-    fresno.source_files = 'CHIPageControl/CHIPageControlFresno.swift', 'CHIPageControl/Core/*.swift'
+    fresno.source_files = 'Sources/CHIPageControl/CHIPageControlFresno.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Jalapeno' do |jalapeno|
-    jalapeno.source_files = 'CHIPageControl/CHIPageControlJalapeno.swift', 'CHIPageControl/Core/*.swift'
+    jalapeno.source_files = 'Sources/CHIPageControl/CHIPageControlJalapeno.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Jaloro' do |jaloro|
-    jaloro.source_files = 'CHIPageControl/CHIPageControlJaloro.swift', 'CHIPageControl/Core/*.swift'
+    jaloro.source_files = 'Sources/CHIPageControl/CHIPageControlJaloro.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Paprika' do |paprika|
-    paprika.source_files = 'CHIPageControl/CHIPageControlPaprika.swift', 'CHIPageControl/Core/*.swift'
+    paprika.source_files = 'Sources/CHIPageControl/CHIPageControlPaprika.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
   s.subspec 'Puya' do |puya|
-    puya.source_files = 'CHIPageControl/CHIPageControlPuya.swift', 'CHIPageControl/Core/*.swift'
+    puya.source_files = 'Sources/CHIPageControl/CHIPageControlPuya.swift', 'Sources/CHIPageControl/Core/*.swift'
   end
 
 end
