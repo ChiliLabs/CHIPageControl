@@ -25,6 +25,7 @@
 		4313A8191E7A99F20015A568 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */; };
 		4313A8251E7AA0310015A568 /* CHIBasePageControl.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7DD1E7A92320015A568 /* CHIBasePageControl.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		43EE766F1E7AA29E002140B5 /* CHIPageControlJaloro.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4313A7D91E7A92320015A568 /* CHIPageControlJaloro.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3A87AA725E30C31001E382D /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A87AA625E30C31001E382D /* UIColor+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		4313A7EE1E7A92B30015A568 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4313A7F01E7A92BB0015A568 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4313A7F21E7A92C40015A568 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3A87AA625E30C31001E382D /* UIColor+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				4313A7DD1E7A92320015A568 /* CHIBasePageControl.swift */,
 				4313A7DE1E7A92320015A568 /* CHILayer.swift */,
 				4313A7DF1E7A92320015A568 /* CHIPageControllable.swift */,
+				A3A87AA625E30C31001E382D /* UIColor+Utils.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				4313A7E61E7A92320015A568 /* CHIPageControlPaprika.swift in Sources */,
 				4313A7E31E7A92320015A568 /* CHIPageControlFresno.swift in Sources */,
 				4313A7E21E7A92320015A568 /* CHIPageControlChimayo.swift in Sources */,
+				A3A87AA725E30C31001E382D /* UIColor+Utils.swift in Sources */,
 				4313A7E41E7A92320015A568 /* CHIPageControlJalapeno.swift in Sources */,
 				4313A7E71E7A92320015A568 /* CHIPageControlPuya.swift in Sources */,
 				4313A7E81E7A92320015A568 /* CHIBasePageControl.swift in Sources */,

@@ -130,7 +130,13 @@ open class CHIPageControlJalapeno: CHIBasePageControl {
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
         
         inactive.enumerated().forEach() { index, layer in
-            layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
+            let tintColor = self.tintColor(position: index)
+            if let alpha = tintColor.alphaComponent {
+                layer.backgroundColor = tintColor.withAlphaComponent(alpha * self.inactiveTransparency).cgColor
+            }
+            else {
+                layer.backgroundColor = tintColor.withAlphaComponent(self.inactiveTransparency).cgColor
+            }
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
                 layer.borderColor = self.tintColor(position: index).cgColor
