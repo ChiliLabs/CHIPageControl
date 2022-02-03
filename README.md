@@ -44,6 +44,20 @@ use [Carthage](https://github.com/Carthage/Carthage) with Cartfile
 github "ChiliLabs/CHIPageControl" ~> 0.1.3
 ```
 
+### Swift Package Manager
+
+The [Swift Package Manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code.
+
+Add the following to your `Package.swift` file:
+```
+dependencies: [
+    .package(url: "https://github.com/ChiliLabs/CHIPageControl.git", .branch("master"))
+]
+```
+And then build your project
+```
+$ swift build
+```
 
 ## Usage
 ### 🎨 Storyboards
