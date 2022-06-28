@@ -27,7 +27,7 @@ import Foundation
 import CoreGraphics
 import UIKit
 
-protocol CHIPageControllable: class {
+protocol CHIPageControllable: AnyObject {
     var numberOfPages: Int { get set }
     var currentPage: Int { get }
     var progress: Double { get set }
