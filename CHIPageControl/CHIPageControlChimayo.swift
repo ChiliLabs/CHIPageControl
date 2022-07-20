@@ -62,25 +62,31 @@ open class CHIPageControlChimayo: CHIBasePageControl {
 
     override open func layoutSubviews() {
         super.layoutSubviews()
+        
         let floatCount = CGFloat(inactive.count)
         let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
         let y = (self.bounds.size.height - self.diameter)*0.5
         var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
-
+        
         inactive.enumerated().forEach() { index, layer in
             layer.cornerRadius = self.radius
             layer.frame = frame
             frame.origin.x += self.diameter + self.padding
             layer.backgroundColor = self.tintColor(position: index).cgColor
         }
+        
         update(for: progress)
     }
 
     override func update(for progress: Double) {
         guard progress >= 0 && progress <= Double(numberOfPages - 1),
             numberOfPages > 1 else { return }
-
-        let rect = CGRect(x: 0, y: 0, width: self.diameter, height: self.diameter).insetBy(dx: 1, dy: 1)
+        
+        var rect = CGRect(x: self.borderWidth, y: self.borderWidth, width: self.diameter - (self.borderWidth * 2), height: self.diameter - (self.borderWidth * 2))
+        
+        if self.borderWidth < 1 {
+            rect = rect.insetBy(dx: 1, dy: 1)
+        }
 
         let left = floor(progress)
         let page = Int(progress)
@@ -111,7 +117,17 @@ open class CHIPageControlChimayo: CHIBasePageControl {
 
         for (index, layer) in inactive.enumerated() {
             mask(index, layer)
+            
+            layer.borderWidth = self.borderWidth
+            
+            if self.borderWidth > 0 {
+                layer.borderColor = (self.borderColor ?? self.tintColor).cgColor
+            }
         }
+        
+        let active = inactive[Int(progress)]
+        active.borderWidth = self.currentPageBorderWidth
+        active.borderColor = (self.currentPageBorderColor ?? self.tintColor)?.cgColor
     }
         
     override open var intrinsicContentSize: CGSize {

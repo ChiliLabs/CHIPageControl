@@ -70,7 +70,7 @@ open class CHIPageControlFresno: CHIBasePageControl {
             layer.backgroundColor = self.tintColor(position: index).withAlphaComponent(self.inactiveTransparency).cgColor
             if self.borderWidth > 0 {
                 layer.borderWidth = self.borderWidth
-                layer.borderColor = self.tintColor(position: index).cgColor
+                layer.borderColor = (self.borderColor ?? self.tintColor(position: index)).cgColor
             }
             layer.cornerRadius = self.radius
             layer.frame = frame
@@ -78,8 +78,13 @@ open class CHIPageControlFresno: CHIBasePageControl {
         }
         
         if let active = elements.first {
-            active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
-            active.borderWidth = 0
+            let activeTintColor = self.currentPageTintColor ?? self.tintColor
+            active.backgroundColor = (activeTintColor)?.cgColor
+            active.borderWidth = self.currentPageBorderWidth
+            
+            if self.currentPageBorderWidth > 0 {
+                active.borderColor = (self.currentPageBorderColor ?? activeTintColor)?.cgColor
+            }
         }
 
         min = elements.first?.frame
