@@ -226,6 +226,20 @@ import UIKit
     func update(for progress: Double) {
         fatalError("Should be implemented in child class")
     }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // forcing rtl
+        if semanticContentAttribute == .forceRightToLeft ||
+            // not forcing and user interface RTL in system language.
+            (UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft && semanticContentAttribute == .unspecified) {
+            transform = CGAffineTransform(scaleX: -1, y: 1)
+        } else {
+            transform = .identity
+        }
+    }
+
 
     deinit {
         self.displayLink?.remove(from: .current, forMode: .common)
