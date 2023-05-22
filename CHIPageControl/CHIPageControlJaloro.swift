@@ -85,7 +85,7 @@ open class CHIPageControlJaloro: CHIBasePageControl {
         super.layoutSubviews()
 
         let floatCount = CGFloat(inactive.count)
-        let x = (self.bounds.size.width - self.elementWidth*(floatCount - 1) + self.activeElementWidth - self.padding*(floatCount - 1))*0.5
+        let x = (self.bounds.size.width - self.elementWidth*(floatCount - 1) - self.activeElementWidth - self.padding*(floatCount - 1))*0.5
         let y = (self.bounds.size.height - self.elementHeight)*0.5
         let activeframe = CGRect(x: x, y: y, width: self.activeElementWidth, height: self.activeElementHeight)
 
